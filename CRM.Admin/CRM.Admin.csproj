@@ -58,6 +58,9 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -180,6 +183,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\NinjectControllerFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1056,6 +1060,10 @@
     <ProjectReference Include="..\CRM.Bll\CRM.Bll.csproj">
       <Project>{8e97a529-c22f-4a5c-8cba-99a0cd56e801}</Project>
       <Name>CRM.Bll</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CRM.Dal\CRM.Dal.csproj">
+      <Project>{ce92f75f-e5c5-40e9-9e02-04c1b6c20dba}</Project>
+      <Name>CRM.Dal</Name>
     </ProjectReference>
     <ProjectReference Include="..\CRM.Model\CRM.Model.csproj">
       <Project>{b134ddea-ce0f-4487-9db6-235802362740}</Project>

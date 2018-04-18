@@ -1,20 +1,17 @@
-﻿using CRM.Dal;
+﻿using CRM.Dal.Abstract;
 using CRM.Model;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CRM.Bll
+namespace CRM.Dal.Concrete
 {
-    public class UserManager
+    public class UserRepository: IUserRepository
     {
-        /// <summary>
-        /// 实例化上下文，操作数据
-        /// </summary>
-        ModelContext db = new ModelContext();
+        private ModelContext db = new ModelContext();
+
         /// <summary>
         /// 查询所有
         /// </summary>
@@ -60,11 +57,11 @@ namespace CRM.Bll
             int id = eUser.Id;
             User user = db.Users.SingleOrDefault(u => u.Id == id);
             if (user.Name == eUser.Name
-                &&user.Sex == eUser.Sex
-                &&user.Birthday == eUser.Birthday
-                &&user.Address == eUser.Address
-                &&user.PhoneNumber == eUser.PhoneNumber
-                &&user.PictureUrl == eUser.PictureUrl)
+                && user.Sex == eUser.Sex
+                && user.Birthday == eUser.Birthday
+                && user.Address == eUser.Address
+                && user.PhoneNumber == eUser.PhoneNumber
+                && user.PictureUrl == eUser.PictureUrl)
             {
                 return 1;
             }

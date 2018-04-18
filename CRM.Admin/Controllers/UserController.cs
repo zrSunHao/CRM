@@ -1,4 +1,5 @@
 ﻿using CRM.Bll;
+using CRM.Bll.Abstract;
 using CRM.Model;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,11 @@ namespace CRM.Admin.Controllers
 {
     public class UserController : Controller
     {
-        UserManager uMr = new UserManager();
+        private IUserServer server;
+        public UserController(IUserServer UserServer)
+        {
+            server = UserServer;
+        }
         static int tempId = 0;
         //临时存储要修改的用户对象
         /// <summary>
@@ -38,7 +43,7 @@ namespace CRM.Admin.Controllers
         {
             var res = new JsonResult();
             List<User> users = new List<User>();
-            users = uMr.GetUsers();
+            users = server.GetUsers();
             res.Data = users;
             res.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
             return Json(users, JsonRequestBehavior.AllowGet);
@@ -51,7 +56,7 @@ namespace CRM.Admin.Controllers
         public ActionResult FindUser(string name)
         {
             List<User> users = new List<User>();
-            users = uMr.Find(name);
+            users = server.Find(name);
             var res = new JsonResult();
             res.Data = users;
             res.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
@@ -64,9 +69,9 @@ namespace CRM.Admin.Controllers
         /// <returns></returns>
         public ActionResult AddUser(User user)
         {
-            if (user.Name == null||user.Name=="")
+            if (user.Name == null || user.Name == "")
                 return View("AddUser");
-            uMr.add(user);
+            server.add(user);
             return View("ListView");
         }
         /// <summary>
@@ -76,7 +81,7 @@ namespace CRM.Admin.Controllers
         /// <returns></returns>
         public ActionResult DeleteUser(int id)
         {
-            int count = uMr.delete(id);
+            int count = server.delete(id);
             return View("ListView");
         }
         /// <summary>
@@ -89,7 +94,7 @@ namespace CRM.Admin.Controllers
             if (user.Name == null || user.Name == "")
                 return 0;
             int j = user.Id;
-            int c = uMr.Edit(user);
+            int c = server.Edit(user);
             return c;
             //
         }
@@ -100,7 +105,7 @@ namespace CRM.Admin.Controllers
         public ActionResult EditUser(int id)
         {
             tempId = id;
-            User user = uMr.SelectUser(id);
+            User user = server.SelectUser(id);
             return View("EditUser", Json(user, JsonRequestBehavior.AllowGet));
         }
         /// <summary>
@@ -110,7 +115,7 @@ namespace CRM.Admin.Controllers
         public ActionResult GetEditUser()
         {
             int id = tempId;
-            User user = uMr.SelectUser(id);
+            User user = server.SelectUser(id);
             return Json(user, JsonRequestBehavior.AllowGet);
             //return View("ListView");
         }
@@ -140,7 +145,7 @@ namespace CRM.Admin.Controllers
         public ActionResult ShowUserListPage(int currentPage)
         {
             List<User> users = new List<User>();
-            users = uMr.GetPageUsers(currentPage);
+            users = server.GetPageUsers(currentPage);
             return Json(users, JsonRequestBehavior.AllowGet);
         }
         /// <summary>
@@ -149,7 +154,7 @@ namespace CRM.Admin.Controllers
         /// <returns></returns>
         public int getUserNumSize()
         {
-            int UserNumSize = uMr.getUserNumSize();
+            int UserNumSize = server.getUserNumSize();
             return UserNumSize;
         }
 
