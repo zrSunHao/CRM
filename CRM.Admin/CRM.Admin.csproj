@@ -139,7 +139,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="UploadImage\" />
     <Folder Include="Views\Files\" />
@@ -183,10 +182,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Infrastructure\NinjectControllerFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\CRMDB.mdb" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -1057,17 +1056,13 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CRM.Bll\CRM.Bll.csproj">
-      <Project>{8e97a529-c22f-4a5c-8cba-99a0cd56e801}</Project>
-      <Name>CRM.Bll</Name>
+    <ProjectReference Include="..\CRM.Interface\CRM.Interface.csproj">
+      <Project>{8f2b4b41-cf2a-4fc8-8d64-509b883b93dd}</Project>
+      <Name>CRM.Interface</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CRM.Dal\CRM.Dal.csproj">
-      <Project>{ce92f75f-e5c5-40e9-9e02-04c1b6c20dba}</Project>
-      <Name>CRM.Dal</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CRM.Model\CRM.Model.csproj">
-      <Project>{b134ddea-ce0f-4487-9db6-235802362740}</Project>
-      <Name>CRM.Model</Name>
+    <ProjectReference Include="..\CRM.NinjectCtrFactory\CRM.NinjectCtrFactory.csproj">
+      <Project>{6360ad96-cf94-46f6-8a0b-f4e7c6c2c6cd}</Project>
+      <Name>CRM.NinjectCtrFactory</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

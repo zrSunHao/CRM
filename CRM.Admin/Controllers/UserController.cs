@@ -1,10 +1,5 @@
-﻿using CRM.Bll;
-using CRM.Bll.Abstract;
-using CRM.Model;
-using System;
-using System.Collections.Generic;
+﻿using CRM.Interface;
 using System.IO;
-using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
@@ -12,13 +7,13 @@ namespace CRM.Admin.Controllers
 {
     public class UserController : Controller
     {
-        private IUserServer server;
+        //服务类，用来处理业务逻辑
+        private IUserServer _server;
         public UserController(IUserServer UserServer)
         {
-            server = UserServer;
+            _server = UserServer;
         }
-        static int tempId = 0;
-        //临时存储要修改的用户对象
+        static int _tempId = 0;//临时存储要修改的用户对象的ID
         /// <summary>
         /// 默认
         /// </summary>
@@ -41,12 +36,7 @@ namespace CRM.Admin.Controllers
         /// <returns></returns>
         public ActionResult ShowUserList()
         {
-            var res = new JsonResult();
-            List<User> users = new List<User>();
-            users = server.GetUsers();
-            res.Data = users;
-            res.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
-            return Json(users, JsonRequestBehavior.AllowGet);
+            return _server.GetUsers();
         }
         /// <summary>
         /// 查询用户
@@ -55,24 +45,31 @@ namespace CRM.Admin.Controllers
         /// <returns></returns>
         public ActionResult FindUser(string name)
         {
-            List<User> users = new List<User>();
-            users = server.Find(name);
-            var res = new JsonResult();
-            res.Data = users;
-            res.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
-            return Json(users, JsonRequestBehavior.AllowGet);
+            var _res = _server.Find(name);
+            _res.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
+            return _res;
         }
         /// <summary>
         /// 添加用户
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
-        public ActionResult AddUser(User user)
+        public ActionResult RedictAddView()
         {
-            if (user.Name == null || user.Name == "")
                 return View("AddUser");
-            server.add(user);
-            return View("ListView");
+        }
+        /// <summary>
+        /// 添加用户并返回操作结果标志
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public int AddUser()
+        {
+            Stream _postData = Request.InputStream;
+            StreamReader _sRead = new StreamReader(_postData);
+            string _userStr = _sRead.ReadToEnd();
+            return _server.Add(_userStr);
         }
         /// <summary>
         /// 删除方法，返回是否删除成功的标志
@@ -81,7 +78,7 @@ namespace CRM.Admin.Controllers
         /// <returns></returns>
         public ActionResult DeleteUser(int id)
         {
-            int count = server.delete(id);
+            int _count = _server.Delete(id);
             return View("ListView");
         }
         /// <summary>
@@ -89,24 +86,22 @@ namespace CRM.Admin.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public int DoEdit(User user)
+        [HttpPost]
+        public int DoEdit()
         {
-            if (user.Name == null || user.Name == "")
-                return 0;
-            int j = user.Id;
-            int c = server.Edit(user);
-            return c;
-            //
+            Stream _postData = Request.InputStream;
+            StreamReader _sRead = new StreamReader(_postData);
+            string _eUserStr = _sRead.ReadToEnd();
+            return _server.Edit(_tempId, _eUserStr);
         }
         /// <summary>
-        /// 编辑用户信息
+        /// 跳转到编辑页面，并存储待修改的用户id
         /// </summary>
         /// <returns></returns>
-        public ActionResult EditUser(int id)
+        public ActionResult RedirectEditView(int id)
         {
-            tempId = id;
-            User user = server.SelectUser(id);
-            return View("EditUser", Json(user, JsonRequestBehavior.AllowGet));
+            _tempId = id;
+            return View("EditUser");
         }
         /// <summary>
         /// 返回要修改对象的信息
@@ -114,10 +109,10 @@ namespace CRM.Admin.Controllers
         /// <returns></returns>
         public ActionResult GetEditUser()
         {
-            int id = tempId;
-            User user = server.SelectUser(id);
-            return Json(user, JsonRequestBehavior.AllowGet);
-            //return View("ListView");
+            int _id = _tempId;
+            var _res = _server.SelectUser(_id);
+            _res.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
+            return _res;
         }
         /// <summary>
         /// 添加用户文件上传处理
@@ -126,11 +121,11 @@ namespace CRM.Admin.Controllers
         [HttpPost]
         public int UploadAddImage()
         {
-            HttpPostedFileBase file = Request.Files[0];
-            if (file != null)
+            HttpPostedFileBase _file = Request.Files[0];
+            if (_file != null)
             {
-                string filePath = Server.MapPath("~/UploadImage/" + file.FileName);
-                file.SaveAs(filePath);
+                string _filePath = Server.MapPath("~/UploadImage/" + _file.FileName);
+                _file.SaveAs(_filePath);
                 return 1;
             }
             else
@@ -144,18 +139,17 @@ namespace CRM.Admin.Controllers
         /// <returns></returns>
         public ActionResult ShowUserListPage(int currentPage)
         {
-            List<User> users = new List<User>();
-            users = server.GetPageUsers(currentPage);
-            return Json(users, JsonRequestBehavior.AllowGet);
+            var _res = _server.GetPageUsers(currentPage);
+            _res.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
+            return _res;
         }
         /// <summary>
         /// 得到信息总量
         /// </summary>
         /// <returns></returns>
-        public int getUserNumSize()
+        public int GetUserNumSize()
         {
-            int UserNumSize = server.getUserNumSize();
-            return UserNumSize;
+            return _server.GetUserNumSize();
         }
 
     }

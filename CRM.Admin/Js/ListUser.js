@@ -12,7 +12,7 @@ listApp.controller('userCtrl', function ($scope, $http, $timeout, $location) {
     $scope.ShowList = function () {
         $http({
             method: 'GET',
-            url: 'http://localhost:59726/User/ShowUserList'
+            url: '/User/ShowUserList'
         }).then(function successCallback(res) {
             $scope.Users = res.data;
             console.log(res);
@@ -63,7 +63,7 @@ listApp.controller('userCtrl', function ($scope, $http, $timeout, $location) {
     $scope.getUserNumSize = function () {
         $http({
             method: 'get',
-            url: '/User/getUserNumSize'
+            url: '/User/GetUserNumSize'
         }).then(function successCallback(res) {
             $scope.dataNum = res.data;
             var i = $scope.dataNum / $scope.listsPerPage;

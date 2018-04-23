@@ -1,15 +1,10 @@
 ﻿using CRM.Model;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace CRM.Dal.Abstract
+namespace CRM.Interface
 {
-    public interface IUserRepository
+    public interface IAccessUserRepository
     {
-        
         /// <summary>
         /// 查询所有
         /// </summary>
@@ -20,7 +15,7 @@ namespace CRM.Dal.Abstract
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
-        int add(User user);
+        int Add(User user);
         /// <summary>
         /// 查找用户
         /// </summary>
@@ -38,7 +33,7 @@ namespace CRM.Dal.Abstract
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        int delete(int id);
+        int Delete(int id);
         /// <summary>
         /// 根据id查询用户
         /// </summary>
@@ -55,9 +50,6 @@ namespace CRM.Dal.Abstract
         /// 得到信息总数
         /// </summary>
         /// <returns></returns>
-        int getUserNumSize();
-
-
-
+        int GetUserNumSize();
     }
 }

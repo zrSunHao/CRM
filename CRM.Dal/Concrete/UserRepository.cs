@@ -1,36 +1,33 @@
-﻿using CRM.Dal.Abstract;
+﻿
+using CRM.Interface;
 using CRM.Model;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CRM.Dal.Concrete
 {
     public class UserRepository: IUserRepository
     {
         private ModelContext db = new ModelContext();
-
         /// <summary>
         /// 查询所有
         /// </summary>
         /// <returns></returns>
         public List<User> GetUsers()
         {
-            List<User> users = db.Users.ToList();
-            return users;
+            List<User> _users = db.Users.ToList();
+            return _users;
         }
         /// <summary>
         /// 添加用户
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
-        public int add(User user)
+        public int Add(User user)
         {
             db.Users.Add(user);
-            int count = db.SaveChanges();
-            return count;
+            int _count = db.SaveChanges();
+            return _count;
         }
         /// <summary>
         /// 查找用户
@@ -39,13 +36,9 @@ namespace CRM.Dal.Concrete
         /// <returns></returns>
         public List<User> Find(string name)
         {
-
-
-            //IQueryable<User> Query= db.Users.Where(u => u.Id == id);
-            IQueryable<User> Query = db.Users.Where(u => u.Name.Contains(name));
-            List<User> user = Query.ToList();
-            return user;
-
+            IQueryable<User> _query = db.Users.Where(u => u.Name.Contains(name));
+            List<User> _users = _query.ToList();
+            return _users;
         }
         /// <summary>
         /// 编辑用户
@@ -54,41 +47,41 @@ namespace CRM.Dal.Concrete
         /// <returns></returns>
         public int Edit(User eUser)
         {
-            int id = eUser.Id;
-            User user = db.Users.SingleOrDefault(u => u.Id == id);
-            if (user.Name == eUser.Name
-                && user.Sex == eUser.Sex
-                && user.Birthday == eUser.Birthday
-                && user.Address == eUser.Address
-                && user.PhoneNumber == eUser.PhoneNumber
-                && user.PictureUrl == eUser.PictureUrl)
+            int _id = eUser.Id;
+            User _user = db.Users.SingleOrDefault(u => u.Id == _id);
+            if (_user.Name == eUser.Name
+                && _user.Sex == eUser.Sex
+                && _user.Birthday == eUser.Birthday
+                && _user.Address == eUser.Address
+                && _user.PhoneNumber == eUser.PhoneNumber
+                && _user.PictureUrl == eUser.PictureUrl)
             {
                 return 1;
             }
             else
             {
-                user.Name = eUser.Name;
-                user.Sex = eUser.Sex;
-                user.Birthday = eUser.Birthday;
-                user.Address = eUser.Address;
-                user.PhoneNumber = eUser.PhoneNumber;
-                user.PictureUrl = eUser.PictureUrl;
+                _user.Name = eUser.Name;
+                _user.Sex = eUser.Sex;
+                _user.Birthday = eUser.Birthday;
+                _user.Address = eUser.Address;
+                _user.PhoneNumber = eUser.PhoneNumber;
+                _user.PictureUrl = eUser.PictureUrl;
             }
-            int count = db.SaveChanges();
-            return count;
+            int _count = db.SaveChanges();
+            return _count;
         }
         /// <summary>
         /// 删除用户
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public int delete(int id)
+        public int Delete(int id)
         {
-            User user = db.Users.SingleOrDefault(u => u.Id == id);
-            if (user == null) return 0;
-            db.Users.Remove(user);
-            int count = db.SaveChanges();
-            return count;
+            User _user = db.Users.SingleOrDefault(u => u.Id == id);
+            if (_user == null) return 0;
+            db.Users.Remove(_user);
+            int _count = db.SaveChanges();
+            return _count;
         }
         /// <summary>
         /// 根据id查询用户
@@ -97,9 +90,8 @@ namespace CRM.Dal.Concrete
         /// <returns></returns>
         public User SelectUser(int id)
         {
-            User user = db.Users.SingleOrDefault(u => u.Id == id);
-            return user;
-
+            User _user = db.Users.SingleOrDefault(u => u.Id == id);
+            return _user;
         }
         /// <summary>
         /// 根据当前页面序号得到当前页面的数据
@@ -108,20 +100,20 @@ namespace CRM.Dal.Concrete
         /// <returns></returns>
         public List<User> GetPageUsers(int currentPage)
         {
-            int pageSize = 10;//一页显示10条信息
-            int num = currentPage * pageSize;//要跳过的条数
-            List<User> users = db.Users.OrderBy(u => u.Id).Skip(num).Take(pageSize).ToList();
-            return users;
+            int _pageSize = 10;//一页显示10条信息
+            int _num = currentPage * _pageSize;//要跳过的条数
+            List<User> _users = db.Users.OrderBy(u => u.Id).Skip(_num).Take(_pageSize).ToList();
+            return _users;
         }
         /// <summary>
         /// 得到信息总数
         /// </summary>
         /// <returns></returns>
-        public int getUserNumSize()
+        public int GetUserNumSize()
         {
-            List<User> users = db.Users.ToList();
-            int count = users.Count;
-            return count;
+            List<User> _users = db.Users.ToList();
+            int _count = _users.Count;
+            return _count;
         }
     }
 }

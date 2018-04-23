@@ -9,8 +9,8 @@
 
 }
 <div>
-    <a href="/User/AddUser" class="btn" style="float:right;font-size:20px;">添加用户</a>
-    <h1>用户管理系统1.1.4</h1>
+    <a href="/User/RedictAddView" class="btn" style="float:right;font-size:20px;">添加用户</a>
+    <h1>用户管理系统1.2.0</h1>
 </div>
 <hr />
 <body ng-app="listApp">
@@ -39,7 +39,7 @@
                         <td ng-hide="{{ user.Sex }}">女</td>
                         <td>{{ user.Address }}</td>
                         <td>
-                            <a href="/User/EditUser?Id={{user.Id}}">编辑</a>
+                            <a href="/User/RedirectEditView?Id={{user.Id}}">编辑</a>
                         </td>
                         <td>
                             <button class="btn" ng-click="deleteUser(user.Id)">
