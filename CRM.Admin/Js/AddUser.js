@@ -1,9 +1,10 @@
 ﻿var addApp = angular.module("addApp", ['ui.bootstrap', 'angularFileUpload']);
-addApp.controller('userCtrl', function ($scope, $http, FileUploader, $timeout) {
+addApp.controller('userCtrl', function ($scope, $http, FileUploader, $timeout, $filter) {
     $scope.Id = 0;
     $scope.Name = null;
     $scope.Sex = true;
     $scope.Birthday = new Date();
+    
     $scope.PhoneNumber = null;
     $scope.Address = "";
     $scope.Picture = "0.jpg";
@@ -24,7 +25,6 @@ addApp.controller('userCtrl', function ($scope, $http, FileUploader, $timeout) {
         url: '/User/UploadAddImage'
     });
     uploader.onSuccessItem = function (fileItem, response, status, headers) {
-        alert("图片上传成功!");
     };
     uploader.onErrorItem = function (fileItem, response, status, headers) {
         alert("图片上传失败!");
@@ -39,7 +39,6 @@ addApp.controller('userCtrl', function ($scope, $http, FileUploader, $timeout) {
         console.log(ele.files[0].name);
         $scope.ImageName = ele.files[0].name;
         $scope.Picture = ele.files[0].name;
-        alert("您要上传的文件名为：" + $scope.ImageName);
         //先将图片传入
         $timeout(uploader.uploadAll(), 100);
     }  
@@ -48,22 +47,34 @@ addApp.controller('userCtrl', function ($scope, $http, FileUploader, $timeout) {
             alert("用户名与电话号码为必填项")
             return;
         }
-        user.Id = $scope.Id;
-        user.Name = $scope.Name;
-        user.Sex = $scope.Sex;
-        user.Birthday = $scope.Birthday;
-        user.PhoneNumber = $scope.PhoneNumber;
-        user.Address = $scope.Address;
-        user.PictureUrl = $scope.Picture;
-        var userJson = angular.toJson(user);
+        //user.Id = $scope.Id;
+        //user.Name = $scope.Name;
+        //user.Sex = $scope.Sex;
+        //user.Birthday = $scope.Birthday;
+        //user.PhoneNumber = $scope.PhoneNumber;
+        //user.Address = $scope.Address;
+        //user.PictureUrl = $scope.Picture;
+        //var userJson = angular.toJson(user);
+        var date = $filter('date')($scope.Birthday, "yyyy-MM-dd hh:mm:ss"); 
+        var strUser = $scope.Id + "," + $scope.Name + "," + $scope.Sex + "," + date + ","
+            + $scope.PhoneNumber + "," + $scope.Address + "," + $scope.Picture;
+        var strJson = angular.toJson(strUser);
         uploader.uploadAll();
+        //console.log(userJson);
         $http({
             method: 'post',
-            data: userJson,
+            //data: userJson,
+            data:strJson,
             url: '/User/AddUser'
         }).then(function successCallback(res) {
-            alert("添加成功");
-            //window.location.href = "/User/ListUser";//添加成功，跳转到列表页面
+            console.log(res.data);
+            if (res.data > 0) {
+                alert("添加成功");
+                window.location.href = "/User/ListUser";//添加成功，跳转到列表页面
+            } else {
+                alert("添加失败！请重新添加或按推出按钮退出");
+            }
+            
         }, function errorCallback(response) {
             // 请求失败执行代码
         });

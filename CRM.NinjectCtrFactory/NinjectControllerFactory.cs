@@ -1,20 +1,17 @@
-﻿using CRM.Bll.Abstract;
-using CRM.Bll.Concrete;
-using CRM.Dal.Abstract;
+﻿using CRM.Bll.Concrete;
 using CRM.Dal.Concrete;
+using CRM.Interface;
+using CRM.OledbDal;
 using Ninject;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace CRM.Admin.Infrastructure
+namespace CRM.NinjectCtrFactory
 {
     public class NinjectControllerFactory : DefaultControllerFactory
     {
-        private IKernel ninjectKernel;
+        public IKernel ninjectKernel;
 
         public NinjectControllerFactory()
         {
@@ -26,11 +23,20 @@ namespace CRM.Admin.Infrastructure
         {
             return controllerType == null ? null : (IController)ninjectKernel.Get(controllerType);
         }
-
+        /// <summary>
+        /// 添加绑定
+        /// </summary>
         private void AddBindings()
         {
-            ninjectKernel.Bind<IUserRepository>().To<UserRepository>();
             ninjectKernel.Bind<IUserServer>().To<UserServer>();
+            if (false)
+            {
+                ninjectKernel.Bind<IUserRepository>().To<UserRepository>();
+            }
+            else
+            {
+                ninjectKernel.Bind<IUserRepository>().To<AccessUserRepository>();
+            }
         }
     }
 }
