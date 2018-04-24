@@ -1,0 +1,21 @@
+D:\work space\CRM\CRM.Model\bin\Debug\CRM.Model.dll
+D:\work space\CRM\CRM.Model\bin\Debug\CRM.Model.pdb
+D:\work space\CRM\CRM.Model\obj\Debug\CRM.Model.dll
+D:\work space\CRM\CRM.Model\obj\Debug\CRM.Model.pdb
+D:\VsWorkSpace\CRM\CRM.Model\bin\Debug\CRM.Model.dll
+D:\VsWorkSpace\CRM\CRM.Model\bin\Debug\CRM.Model.pdb
+D:\VsWorkSpace\CRM\CRM.Model\obj\Debug\CRM.Model.csproj.CoreCompileInputs.cache
+D:\VsWorkSpace\CRM\CRM.Model\obj\Debug\CRM.Model.dll
+D:\VsWorkSpace\CRM\CRM.Model\obj\Debug\CRM.Model.pdb
+D:\VsWorkSpace\CRM\CRM.Model\obj\Debug\CRM.Model.csprojResolveAssemblyReference.cache
+D:\VsWork\CRM\CRM.Model\bin\Debug\CRM.Model.dll
+D:\VsWork\CRM\CRM.Model\bin\Debug\CRM.Model.pdb
+D:\VsWork\CRM\CRM.Model\obj\Debug\CRM.Model.csproj.CoreCompileInputs.cache
+D:\VsWork\CRM\CRM.Model\obj\Debug\CRM.Model.dll
+D:\VsWork\CRM\CRM.Model\obj\Debug\CRM.Model.pdb
+D:\VsWork\CRM\CRM.Model\obj\Debug\CRM.Model.csprojResolveAssemblyReference.cache
+D:\git\CRM\CRM.Model\bin\Debug\CRM.Model.dll
+D:\git\CRM\CRM.Model\bin\Debug\CRM.Model.pdb
+D:\git\CRM\CRM.Model\obj\Debug\CRM.Model.csproj.CoreCompileInputs.cache
+D:\git\CRM\CRM.Model\obj\Debug\CRM.Model.dll
+D:\git\CRM\CRM.Model\obj\Debug\CRM.Model.pdb

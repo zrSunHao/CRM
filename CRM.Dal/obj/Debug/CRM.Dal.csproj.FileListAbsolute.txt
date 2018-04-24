@@ -1,0 +1,70 @@
+D:\work space\CRM\CRM.Dal\bin\Debug\CRM.Dal.dll.config
+D:\work space\CRM\CRM.Dal\bin\Debug\CRM.Dal.dll
+D:\work space\CRM\CRM.Dal\bin\Debug\CRM.Dal.pdb
+D:\work space\CRM\CRM.Dal\bin\Debug\CRM.Model.dll
+D:\work space\CRM\CRM.Dal\bin\Debug\EntityFramework.dll
+D:\work space\CRM\CRM.Dal\bin\Debug\EntityFramework.SqlServer.dll
+D:\work space\CRM\CRM.Dal\bin\Debug\CRM.Model.pdb
+D:\work space\CRM\CRM.Dal\bin\Debug\EntityFramework.xml
+D:\work space\CRM\CRM.Dal\bin\Debug\EntityFramework.SqlServer.xml
+D:\work space\CRM\CRM.Dal\obj\Debug\CRM.Dal.csprojResolveAssemblyReference.cache
+D:\work space\CRM\CRM.Dal\obj\Debug\CRM.Dal.dll
+D:\work space\CRM\CRM.Dal\obj\Debug\CRM.Dal.pdb
+D:\VsWorkSpace\CRM\CRM.Dal\bin\Debug\CRM.Dal.dll.config
+D:\VsWorkSpace\CRM\CRM.Dal\bin\Debug\CRM.Dal.dll
+D:\VsWorkSpace\CRM\CRM.Dal\bin\Debug\CRM.Dal.pdb
+D:\VsWorkSpace\CRM\CRM.Dal\bin\Debug\CRM.Model.dll
+D:\VsWorkSpace\CRM\CRM.Dal\bin\Debug\EntityFramework.dll
+D:\VsWorkSpace\CRM\CRM.Dal\bin\Debug\EntityFramework.SqlServer.dll
+D:\VsWorkSpace\CRM\CRM.Dal\bin\Debug\CRM.Model.pdb
+D:\VsWorkSpace\CRM\CRM.Dal\bin\Debug\EntityFramework.xml
+D:\VsWorkSpace\CRM\CRM.Dal\bin\Debug\EntityFramework.SqlServer.xml
+D:\VsWorkSpace\CRM\CRM.Dal\obj\Debug\CRM.Dal.csprojResolveAssemblyReference.cache
+D:\VsWorkSpace\CRM\CRM.Dal\obj\Debug\CRM.Dal.csproj.CoreCompileInputs.cache
+D:\VsWorkSpace\CRM\CRM.Dal\obj\Debug\CRM.Dal.csproj.CopyComplete
+D:\VsWorkSpace\CRM\CRM.Dal\obj\Debug\CRM.Dal.dll
+D:\VsWorkSpace\CRM\CRM.Dal\obj\Debug\CRM.Dal.pdb
+D:\VsWork\CRM\CRM.Dal\bin\Debug\CRM.Dal.dll.config
+D:\VsWork\CRM\CRM.Dal\bin\Debug\CRM.Dal.dll
+D:\VsWork\CRM\CRM.Dal\bin\Debug\CRM.Dal.pdb
+D:\VsWork\CRM\CRM.Dal\bin\Debug\CRM.Model.dll
+D:\VsWork\CRM\CRM.Dal\bin\Debug\EntityFramework.dll
+D:\VsWork\CRM\CRM.Dal\bin\Debug\EntityFramework.SqlServer.dll
+D:\VsWork\CRM\CRM.Dal\bin\Debug\CRM.Model.pdb
+D:\VsWork\CRM\CRM.Dal\bin\Debug\EntityFramework.xml
+D:\VsWork\CRM\CRM.Dal\bin\Debug\EntityFramework.SqlServer.xml
+D:\VsWork\CRM\CRM.Dal\obj\Debug\CRM.Dal.csprojResolveAssemblyReference.cache
+D:\VsWork\CRM\CRM.Dal\obj\Debug\CRM.Dal.csproj.CoreCompileInputs.cache
+D:\VsWork\CRM\CRM.Dal\obj\Debug\CRM.Dal.csproj.CopyComplete
+D:\VsWork\CRM\CRM.Dal\obj\Debug\CRM.Dal.dll
+D:\VsWork\CRM\CRM.Dal\obj\Debug\CRM.Dal.pdb
+D:\git\CRM\CRM.Dal\bin\Debug\CRM.Dal.dll.config
+D:\git\CRM\CRM.Dal\bin\Debug\CRM.Dal.dll
+D:\git\CRM\CRM.Dal\bin\Debug\CRM.Dal.pdb
+D:\git\CRM\CRM.Dal\bin\Debug\CRM.Model.dll
+D:\git\CRM\CRM.Dal\bin\Debug\EntityFramework.dll
+D:\git\CRM\CRM.Dal\bin\Debug\EntityFramework.SqlServer.dll
+D:\git\CRM\CRM.Dal\bin\Debug\CRM.Model.pdb
+D:\git\CRM\CRM.Dal\bin\Debug\EntityFramework.xml
+D:\git\CRM\CRM.Dal\bin\Debug\EntityFramework.SqlServer.xml
+D:\git\CRM\CRM.Dal\obj\Debug\CRM.Dal.csprojResolveAssemblyReference.cache
+D:\git\CRM\CRM.Dal\obj\Debug\CRM.Dal.csproj.CoreCompileInputs.cache
+D:\git\CRM\CRM.Dal\obj\Debug\CRM.Dal.csproj.CopyComplete
+D:\git\CRM\CRM.Dal\obj\Debug\CRM.Dal.dll
+D:\git\CRM\CRM.Dal\obj\Debug\CRM.Dal.pdb
+D:\git\CRM\CRM.Dal\bin\Debug\Ninject.dll
+D:\git\CRM\CRM.Dal\bin\Debug\Ninject.xml
+D:\git\CRM\CRM.Dal\bin\Debug\CRM.Interface.dll
+D:\git\CRM\CRM.Dal\bin\Debug\CRM.Interface.pdb
+D:\git\CRM\CRM.Dal\bin\Debug\System.Web.Mvc.dll
+D:\git\CRM\CRM.Dal\bin\Debug\System.Web.Razor.dll
+D:\git\CRM\CRM.Dal\bin\Debug\System.Web.WebPages.Razor.dll
+D:\git\CRM\CRM.Dal\bin\Debug\System.Web.WebPages.dll
+D:\git\CRM\CRM.Dal\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\git\CRM\CRM.Dal\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\git\CRM\CRM.Dal\bin\Debug\System.Web.Mvc.xml
+D:\git\CRM\CRM.Dal\bin\Debug\System.Web.Razor.xml
+D:\git\CRM\CRM.Dal\bin\Debug\System.Web.WebPages.Razor.xml
+D:\git\CRM\CRM.Dal\bin\Debug\System.Web.WebPages.xml
+D:\git\CRM\CRM.Dal\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\git\CRM\CRM.Dal\bin\Debug\zh-Hans\System.Web.Mvc.resources.dll

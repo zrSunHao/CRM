@@ -1,0 +1,12 @@
+D:\VsWork\CRM\CRM.Model\bin\Release\CRM.Model.dll
+D:\VsWork\CRM\CRM.Model\bin\Release\CRM.Model.pdb
+D:\VsWork\CRM\CRM.Model\obj\Release\CRM.Model.csprojResolveAssemblyReference.cache
+D:\VsWork\CRM\CRM.Model\obj\Release\CRM.Model.csproj.CoreCompileInputs.cache
+D:\VsWork\CRM\CRM.Model\obj\Release\CRM.Model.dll
+D:\VsWork\CRM\CRM.Model\obj\Release\CRM.Model.pdb
+D:\git\CRM\CRM.Model\bin\Release\CRM.Model.dll
+D:\git\CRM\CRM.Model\bin\Release\CRM.Model.pdb
+D:\git\CRM\CRM.Model\obj\Release\CRM.Model.csprojResolveAssemblyReference.cache
+D:\git\CRM\CRM.Model\obj\Release\CRM.Model.csproj.CoreCompileInputs.cache
+D:\git\CRM\CRM.Model\obj\Release\CRM.Model.dll
+D:\git\CRM\CRM.Model\obj\Release\CRM.Model.pdb

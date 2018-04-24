@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "FindUser";
+}
+@section scripts{
+    <script src="~/Scripts/angular.js"></script>
+    <script src="~/Js/FindUser.js"></script>
+    <link rel="stylesheet" href="//apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css">
+}
+    <body ng-app="findApp">
+        <div ng-controller="userCtrl">
+            <h1>查询结果</h1>
+            <hr>
+           
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>姓名</th>
+                        <th>性别</th>
+                        <th>年龄</th>
+                        <th>编辑</th>
+                        <th>删除</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="user in Users">
+                        <td>{{ user.Name }}</td>
+                        <td>{{ user.Sex }}</td>
+                        <td>{{ user.Age }}</td>
+                        <td>
+                            <a href="'http://localhost:59726/User/DeleteUser&Id'+{{user.Id}}">删除</a>
+                        </td>
+                        <td>
+                            <button class="btn" ng-click="editUser(user.Id)">
+                                <span class="glyphicon glyphicon-pencil"></span>删除
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+        </div>
+    </body>

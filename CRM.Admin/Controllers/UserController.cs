@@ -151,6 +151,5 @@ namespace CRM.Admin.Controllers
         {
             return _server.GetUserNumSize();
         }
-
     }
 }
